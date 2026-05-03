@@ -96,3 +96,24 @@ To deploy this application, follow these steps:
     serve
     ```
     This will typically start a local server at `http://localhost:3000` (or another available port), allowing you to see the deployed version of your application. For actual deployment to hosting platforms (like Netlify, Vercel, GitHub Pages, etc.), you would upload the contents of the `dist/` folder.
+
+## Docker Deployment
+
+To containerize and run your application using Docker:
+
+1.  **Build the Docker Image**:
+    Ensure you have Docker installed. Then, run the following command in your project's root directory:
+    ```bash
+    docker build -t aboutme-app .
+    ```
+    This command builds the Docker image using the `Dockerfile` and tags it as `aboutme-app`.
+
+2.  **Run the Docker Container**:
+    Once the image is built, start a container from it:
+    ```bash
+    docker run -p 3000:3000 aboutme-app
+    ```
+    This command maps port 3000 on your host machine to port 3000 inside the container.
+
+3.  **Access the Application**:
+    You can now access your deployed application in your web browser at `http://localhost:3000`.
