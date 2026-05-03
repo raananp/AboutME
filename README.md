@@ -71,3 +71,28 @@ export default defineConfig([
   },
 ])
 ```
+
+## Deployment Instructions
+
+To deploy this application, follow these steps:
+
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+2.  **Build the Application**:
+    ```bash
+    npm run build
+    ```
+    This command will compile the TypeScript code and create an optimized production build in the `dist/` directory.
+3.  **Serve the Production Build**:
+    You can serve the `dist/` folder locally to preview the production build. A common way to do this is by using a static file server like `serve`. If you don't have it installed globally, you can install it first:
+    ```bash
+    npm install -g serve
+    ```
+    Then, navigate to the `dist/` directory and start the server:
+    ```bash
+    cd dist
+    serve
+    ```
+    This will typically start a local server at `http://localhost:3000` (or another available port), allowing you to see the deployed version of your application. For actual deployment to hosting platforms (like Netlify, Vercel, GitHub Pages, etc.), you would upload the contents of the `dist/` folder.
