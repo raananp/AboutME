@@ -12,7 +12,9 @@ const Icons = {
   Workflow: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-workflow" width="24" height="24"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>,
   Github: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github" width="20" height="20"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>,
   Linkedin: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin" width="20" height="20"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>,
-  Mail: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail" width="24" height="24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+  Mail: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail" width="24" height="24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>,
+  ExternalLink: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link" width="18" height="18"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>,
+  ShoppingBag: () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-shopping-bag" width="20" height="20"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
 };
 
 const Section = ({ children, className = "", id = "" }: { children: React.ReactNode, className?: string, id?: string }) => (
@@ -37,10 +39,17 @@ const App = () => {
             <Icons.Terminal />
             <span>RAANAN_PERETZ</span>
           </div>
-          <div className="flex gap-6 text-sm font-medium">
+          <div className="flex gap-6 text-sm font-medium items-center">
             <a href="#experience" className="hover:text-[#38bdf8]">Experience</a>
             <a href="#projects" className="hover:text-[#38bdf8]">Projects</a>
             <a href="#stack" className="hover:text-[#38bdf8]">Stack</a>
+            <a 
+              href="https://store.raananpe.cc/" 
+              target="_blank" 
+              className="bg-[#38bdf8]/10 text-[#38bdf8] px-3 py-1 rounded-md border border-[#38bdf8]/20 hover:bg-[#38bdf8]/20 transition-all flex items-center gap-2"
+            >
+              <Icons.ShoppingBag /> Store
+            </a>
           </div>
         </div>
       </nav>
@@ -71,10 +80,11 @@ const App = () => {
               Connect <Icons.Linkedin />
             </a>
             <a 
-              href="#projects" 
-              className="bg-[#1e293b] text-[#f8fafc] px-6 py-3 rounded-lg font-bold hover:bg-[#334155] transition-colors"
+              href="https://store.raananpe.cc/" 
+              target="_blank" 
+              className="bg-[#1e293b] text-[#f8fafc] px-6 py-3 rounded-lg font-bold hover:bg-[#334155] transition-colors flex items-center gap-2"
             >
-              View Projects
+              Visit Store <Icons.ExternalLink />
             </a>
           </div>
         </motion.div>
@@ -83,24 +93,49 @@ const App = () => {
       {/* Featured Projects */}
       <Section id="projects" className="py-20">
         <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-          <Icons.Code2 /> Featured Projects
+          <Icons.Code2 /> Featured Projects & Solutions
         </h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card className="flex flex-col h-full">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Card className="flex flex-col h-full border-t-4 border-t-[#38bdf8]">
             <div className="flex justify-between items-start mb-4">
               <div className="bg-[#38bdf8]/10 p-3 rounded-lg">
                 <Icons.Workflow />
               </div>
-              <a href="https://github.com/raananp/ITAgent" target="_blank" className="text-[#94a3b8] hover:text-[#38bdf8]">
-                <Icons.Github />
-              </a>
+              <div className="flex gap-3">
+                <a href="https://github.com/raananp/ITAgent" target="_blank" className="text-[#94a3b8] hover:text-[#38bdf8]">
+                  <Icons.Github />
+                </a>
+                <a href="https://store.raananpe.cc/it-agent" target="_blank" className="text-[#38bdf8] hover:text-[#7dd3fc]">
+                  <Icons.ExternalLink />
+                </a>
+              </div>
             </div>
             <h3 className="text-xl font-bold mb-2">ITAgent</h3>
-            <p className="text-[#94a3b8] mb-6 flex-grow">
-              A flagship open-source IT Orchestration platform. Features a visual workflow builder (React Flow) for "Zero-Touch" onboarding and identity lifecycle management.
+            <p className="text-[#94a3b8] mb-6 flex-grow text-sm">
+              A flagship IT Orchestration & Compliance platform. Features a Visual Workflow Builder, real-time SOC2/ISO Compliance Hub, and automated Identity Lifecycle Management.
             </p>
             <div className="flex gap-2 flex-wrap">
-              {['React', 'Node.js', 'PostgreSQL', 'Docker'].map(tag => (
+              {['Compliance', 'Automation', 'React Flow', 'AWS'].map(tag => (
+                <span key={tag} className="text-[10px] font-bold bg-[#1e293b] px-2 py-1 rounded border border-[#334155]">{tag}</span>
+              ))}
+            </div>
+          </Card>
+
+          <Card className="flex flex-col h-full border-t-4 border-t-[#818cf8]">
+            <div className="flex justify-between items-start mb-4">
+              <div className="bg-[#818cf8]/10 p-3 rounded-lg">
+                <Icons.Bot />
+              </div>
+              <a href="https://store.raananpe.cc/line-app" target="_blank" className="text-[#38bdf8] hover:text-[#7dd3fc]">
+                <Icons.ExternalLink />
+              </a>
+            </div>
+            <h3 className="text-xl font-bold mb-2">Line App</h3>
+            <p className="text-[#94a3b8] mb-6 flex-grow text-sm">
+              An innovative solution part of my specialized software store. Providing streamlined tools for modern IT infrastructure and productivity.
+            </p>
+            <div className="flex gap-2 flex-wrap">
+              {['SaaS', 'Store', 'Efficiency'].map(tag => (
                 <span key={tag} className="text-[10px] font-bold bg-[#1e293b] px-2 py-1 rounded border border-[#334155]">{tag}</span>
               ))}
             </div>
@@ -108,19 +143,19 @@ const App = () => {
 
           <Card className="flex flex-col h-full">
             <div className="flex justify-between items-start mb-4">
-              <div className="bg-[#818cf8]/10 p-3 rounded-lg">
+              <div className="bg-[#34d399]/10 p-3 rounded-lg">
                 <Icons.Terminal />
               </div>
-              <a href="https://github.com/raananp/Powershell-Gui-2019" target="_blank" className="text-[#94a3b8] hover:text-[#818cf8]">
+              <a href="https://github.com/raananp/Powershell-Gui-2019" target="_blank" className="text-[#94a3b8] hover:text-[#34d399]">
                 <Icons.Github />
               </a>
             </div>
-            <h3 className="text-xl font-bold mb-2">IT Automation Hub (v11.3)</h3>
-            <p className="text-[#94a3b8] mb-6 flex-grow">
-              A modular .NET-based PowerShell GUI framework created in 2019. Standardized global onboarding and AD management for enterprise teams.
+            <h3 className="text-xl font-bold mb-2">IT Automation Hub</h3>
+            <p className="text-[#94a3b8] mb-6 flex-grow text-sm">
+              Modular .NET PowerShell GUI framework. Standardized global onboarding and AD management for enterprise-scale environments.
             </p>
             <div className="flex gap-2 flex-wrap">
-              {['PowerShell', '.NET', 'Active Directory', 'Automation'].map(tag => (
+              {['PowerShell', '.NET', 'AD', 'Legacy'].map(tag => (
                 <span key={tag} className="text-[10px] font-bold bg-[#1e293b] px-2 py-1 rounded border border-[#334155]">{tag}</span>
               ))}
             </div>
@@ -209,6 +244,9 @@ const App = () => {
             <p className="text-sm text-[#64748b]">Built with React, Vite, and CI/CD best practices.</p>
           </div>
           <div className="flex gap-6 text-[#94a3b8]">
+            <a href="https://store.raananpe.cc/" target="_blank" className="hover:text-[#38bdf8] flex items-center gap-1 text-sm font-bold">
+              <Icons.ShoppingBag /> Store
+            </a>
             <a href="https://github.com/raananp" target="_blank" className="hover:text-[#f8fafc]"><Icons.Github /></a>
             <a href="https://www.linkedin.com/in/raanan-peretz-a9378352/" target="_blank" className="hover:text-[#f8fafc]"><Icons.Linkedin /></a>
             <a href="mailto:raanan@example.com" className="hover:text-[#f8fafc]"><Icons.Mail /></a>
